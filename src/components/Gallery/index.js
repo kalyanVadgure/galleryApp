@@ -75,8 +75,7 @@ const imagesList = [
 
 class Gallery extends Component {
   state = {
-    urlImage: imagesList[0].imageUrl,
-    altTextImage: imagesList[0].imageAltText,
+    selectedImage: imagesList[0],
   }
 
   updateGalleryImage = id => {
@@ -87,20 +86,19 @@ class Gallery extends Component {
     const selectedImage = selectedImageList[0]
 
     this.setState({
-      urlImage: selectedImage.imageUrl,
-
-      altTextImage: selectedImage.imageAltText,
+      selectedImage,
     })
   }
 
   render() {
-    const {urlImage, altTextImage} = this.state
+    const {selectedImage} = this.state
+    const {imageUrl, imageAltText} = selectedImage
 
     return (
       <div className="main_container">
         <div>
           <div>
-            <img className="image" src={urlImage} alt={altTextImage} />
+            <img className="image" src={imageUrl} alt={imageAltText} />
 
             <h1>Nature photography</h1>
             <p>Nature Photography by Rahul</p>
@@ -112,7 +110,7 @@ class Gallery extends Component {
                   eachImage={eachImage}
                   key={eachImage.id}
                   updateGalleryImage={this.updateGalleryImage}
-                  isActive={eachImage.imageUrl === urlImage}
+                  isActive={eachImage.imageUrl === imageUrl}
                 />
               ))}
             </ul>
