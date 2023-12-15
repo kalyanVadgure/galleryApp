@@ -92,7 +92,7 @@ class Gallery extends Component {
 
   render() {
     const {selectedImage} = this.state
-    const {imageUrl, imageAltText} = selectedImage
+    const {imageUrl, imageAltText, id} = selectedImage
 
     return (
       <div className="main_container">
@@ -110,7 +110,7 @@ class Gallery extends Component {
                   eachImage={eachImage}
                   key={eachImage.id}
                   updateGalleryImage={this.updateGalleryImage}
-                  isActive={eachImage.imageUrl === imageUrl}
+                  isActive={eachImage.id === id}
                 />
               ))}
             </ul>
