@@ -7,6 +7,14 @@
   width: 100vw;
 }
 
+.thumbnails_container {
+  list-style-type: none;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+}
+
 .image {
   height: 400px;
   width: 600px;
